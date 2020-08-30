@@ -7,14 +7,6 @@ const initialMovieState={
 }
 export function movies(state=initialMovieState,action)
 {
-    // if(action.type===ADD_MOVIES)
-    // {
-    //     return {
-    //         ...state,
-    //         list:action.movies
-    //     }
-    // }
-    // return state;
     switch(action.type)
    { 
        case ADD_MOVIES:
@@ -76,19 +68,6 @@ export function search(state=initialSearchState,action){
     }
    
 }
-//without combinereducer function
-// const initialRootState={
-//     movies:initialMovieState,
-//     search:initialSearchState
-// }
-// export default function rootReducer(state=initialRootState,action)
-// {
-//     return{
-//         movies:movies(state.movies,action),
-//         search:search(state.search,action)
-//     }
-// }
-//function to combine reducers provided by redux
 export default combineReducers({
     movies:movies,//reducer
     search:search

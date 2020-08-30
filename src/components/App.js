@@ -7,9 +7,10 @@ class App extends React.Component {
   componentDidMount()
   {
     const {store}=this.props
+    console.log("props in app",this.props.store);
     store.subscribe(()=>{
       console.log('updated!');
-      this.forceUpdate();
+     this.forceUpdate();
     })
     //make an api call
     // store.dispatch({
@@ -33,7 +34,7 @@ class App extends React.Component {
     this.props.store.dispatch(setShowFavourites(val))
   }
   render(){
-    const {movies,search}=this.props.store.getState();
+  const {movies,search}=this.props.store.getState();
   const {list,favourites,showFavourites}=movies
   console.log('render',this.props.store.getState());
   const displayMovies=showFavourites?favourites:list;
